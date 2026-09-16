@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruleta Matemática</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Actividad interactiva</p>
+      <h1>Ruleta Matemática</h1>
+      <p class="subtitle">
+        Gira la ruleta y resuelve el desafío que corresponde al color seleccionado.
+      </p>
+    </section>
+
+    <section class="game-card">
+      <div class="wheel-area">
+        <div class="pointer" aria-hidden="true"></div>
+
+        <canvas
+          id="wheel"
+          width="620"
+          height="620"
+          aria-label="Ruleta matemática"
+        ></canvas>
+
+        <button id="spinButton" class="spin-button" type="button">
+          GIRAR
+        </button>
+      </div>
+
+      <aside class="status-card">
+        <p class="status-label">Resultado</p>
+        <div id="colorBadge" class="color-badge">Esperando giro</div>
+        <p id="statusText">
+          Presiona el botón para comenzar.
+        </p>
+
+        <div class="mini-help">
+          <span>1</span>
+          <p>Gira la ruleta.</p>
+        </div>
+        <div class="mini-help">
+          <span>2</span>
+          <p>Observa el color ganador.</p>
+        </div>
+        <div class="mini-help">
+          <span>3</span>
+          <p>Resuelve el problema.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+
+    <section
+      class="modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <button id="closeModal" class="close-button" type="button" aria-label="Cerrar">
+        ×
+      </button>
+
+      <p class="modal-kicker">Color seleccionado</p>
+      <div id="modalColor" class="modal-color">Azul</div>
+
+      <h2 id="modalTitle">¡Resuelve este desafío!</h2>
+      <p id="problemText" class="problem-text">
+        Aquí aparecerá el problema matemático correspondiente.
+      </p>
+	  <div id="timerBox" class="timer-box">
+		  <span class="timer-label">Tiempo restante</span>
+
+		  <div class="timer-number">
+			<span id="timerValue">20</span>
+			<small>seg</small>
+		  </div>
+		</div>
+
+		<p
+		  id="answerText"
+		  class="answer-text"
+		  aria-live="polite"
+		></p>
+
+      <button id="playAgainButton" class="secondary-button" type="button">
+        Volver a girar
+      </button>
+    </section>
+  </div>
+
+  <script src="problems.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
